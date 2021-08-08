@@ -9,6 +9,9 @@ class CommandLine:
         self.argv = argv[1:]
         self.logger = logging.getLogger(__name__)
         self.registered_commands: list[Callable] = []
+        for func in dir(self):
+            if not func.startswith('_') and callable(func := getattr(self, func)):
+                self.registered_commands.append(func)
 
     def run(self):
         try:

@@ -2,13 +2,13 @@
 import sys
 
 if __name__ == '__main__':
-    from .utils.administrative import AdminCommandLine
+    from .utils.command_line import CommandLine
 else:
-    from pycommand_line.utils.administrative import AdminCommandLine
+    from pycommand_line.utils.command_line import CommandLine
 
 
 def main():
-    cl = AdminCommandLine(
+    cl = CommandLine(
         argv=sys.argv
     )
     cl.run()
