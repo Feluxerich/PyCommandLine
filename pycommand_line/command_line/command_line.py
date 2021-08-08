@@ -2,13 +2,14 @@ import logging
 from typing import Callable
 
 from .errors import *
+from .. import conf
 
 
 class CommandLine:
     def __init__(self, argv: list[str]):
         self.argv = argv[1:]
         self.logger = logging.getLogger(__name__)
-        self.registered_commands: list[Callable] = []
+        self.registered_commands: list[Callable] = conf.REGISTERED_COMMANDS
         for func in dir(self):
             if not func.startswith('_') and callable(func := getattr(self, func)):
                 self.registered_commands.append(func)
