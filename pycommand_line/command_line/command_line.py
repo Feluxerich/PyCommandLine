@@ -28,4 +28,4 @@ class CommandLine:
                 command=argv,
                 registered=command_names
             )
-        eval(f'self.{argv}()')
+        getattr(self, argv)()
