@@ -13,6 +13,7 @@ class CommandLine:
         for func in dir(self):
             if not func.startswith('_') and callable(func := getattr(self, func)):
                 self.registered_commands.append(func)
+        conf.USED_COMMAND_LINE = self
 
     def run(self):
         try:

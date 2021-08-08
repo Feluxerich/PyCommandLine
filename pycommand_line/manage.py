@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 import sys
 
-# if __name__ == '__main__':
-#     from . import conf
-# else:
-#     from pycommand_line import conf
-
 from . import conf
 
 
